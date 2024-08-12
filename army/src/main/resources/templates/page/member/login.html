@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NaHC</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
+    <th:block th:replace="~{common/config :: configFragment}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/member/login.css}" >
+</head>
+<body>
+    <p class="img-header">
+        NaHC Military Service
+        <span>MILITARY</span>
+    </p>
+    <div class="login-container">
+        <div class="input_id_container">
+            <input id="input_id" type="text" required/>
+            <label for="input_id" id="input_id_label">ID</label>
+            <span id="input_id_span"></span>
+        </div>
+        <div class="input_password_container">
+            <input id="input_password" type="password" required/>
+            <label for="input_password" id="input_password_label">Password</label>
+            <span id="input_password_span"></span>
+        </div>
+        <div class="login-button-container">
+            <button id="login-button">Login</button>
+        </div>
+        <div class="link-container">
+            <a href="/public/signup">회원가입</a>
+            <span>|</span>
+            <a href="/public/findId">아이디 찾기</a>
+            <span>|</span>
+            <a href="/public/findPassword">비밀번호 찾기</a>
+        </div>
+        <script th:src="@{/js/member/login.js}"></script>
+    </div>
+<th:block th:replace="~{fragments/footer :: footerFragment}"></th:block>
+</body>
+</html>

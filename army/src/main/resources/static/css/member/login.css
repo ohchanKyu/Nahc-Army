@@ -1,0 +1,118 @@
+body {
+    background: #090d00;
+}
+.img-header{
+    padding-bottom: 2em !important;
+}
+.login-container{
+    background-color: white;
+    border-radius: 8px;
+    width:450px;
+    margin:0 auto;
+    padding:3em 0;
+    box-shadow: 0 5px 10px 10px #656363;
+}
+/*input type*/
+.input_id_container, .input_password_container{
+    position: relative;
+    width: 300px;
+    margin:0 auto;
+}
+.input_password_container{
+    margin-top:50px;
+}
+#input_id, #input_password{
+    font-size: 15px;
+    color: #222222;
+    width: 300px;
+    border: none;
+    border-bottom: solid #aaaaaa 1px;
+    padding-bottom: 10px;
+    position: relative;
+    background: none;
+    z-index: 5;
+}
+#input_id::placeholder { color: #aaaaaa; }
+#input_password::placeholder { color: #aaaaaa; }
+#input_id:focus { outline: none; }
+#input_password:focus { outline: none; }
+
+.input_id_container span, .input_password_container span {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0%;  /* right로만 바꿔주면 오 - 왼 */
+    background-color: #666;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    transition: 0.5s;
+}
+.input_id_container label,.input_password_container label{
+    position: absolute;
+    color: #aaa;
+    left:0px;
+    font-size: 20px;
+    bottom: 8px;
+    transition: all .2s;
+}
+#input_id:focus ~ #input_id_label, #input_id:valid ~ #input_id_label {
+    font-size: 16px;
+    bottom: 40px;
+    color: #666;
+    font-weight: bold;
+}
+#input_password:focus ~ #input_password_label, #input_password:valid ~ #input_password_label {
+    font-size: 16px;
+    bottom: 40px;
+    color: #666;
+    font-weight: bold;
+}
+#input_id:focus ~  #input_id_span, #input_id:valid ~ #input_id_span {
+    width: 100%;
+}
+#input_password:focus ~  #input_password_span, #input_password:valid ~ #input_password_span {
+    width: 100%;
+}
+.login-button-container{
+    margin:0 auto;
+    width:300px;
+    margin-top:50px;
+}
+#login-button{
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+    font-size:15px;
+    font-weight: 600;
+    border: none;
+    padding: 10px 50px;
+    border-radius: 15px;
+    background-color: #e45735;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+#login-button:hover{
+    transform: scale(1.1);
+}
+.link-container{
+    margin-top:30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.link-container a {
+    text-align: center;
+    color:#333;
+    font-size:13px;
+    font-weight: bold;
+    margin:0 20px;
+    text-decoration: none;
+}
+.link-container a:hover{
+    color:#e45735;
+}
+.link-container span{
+    opacity: 0.5;
+}

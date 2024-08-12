@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NaHC</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
+    <th:block th:replace="~{common/config :: configFragment}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/member/signup.css}" >
+</head>
+<body>
+    <p class="img-header">
+        NaHC Military Service
+        <span>MILITARY</span>
+    </p>
+    <div class="signup-container">
+        <div class="input-container">
+            <label for="name" class="form-label name">이름 입력</label>
+            <input id="name"
+                   placeholder="이름을 입력하세요."
+                   class="form-control" type="text">
+            <div class="sample-box">
+                <label for="postcode" class="form-label password">부대 우편번호 입력</label>
+                <div class="id-input-container">
+                    <input id="postcode" placeholder="우편번호 입력" class="form-control" type="text">
+                    <button onclick="sample6_execDaumPostcode()"
+                            class="address_number_button" id="id-postcode" data-value="0">우편번호</button>
+                </div>
+                <input type="hidden" id="address" placeholder="주소">
+                <input type="hidden" id="extraAddress" placeholder="참고항목">
+            </div>
+
+            <label for="id" class="form-label id">아이디 입력</label>
+            <div class="id-input-container">
+                <input id="id" placeholder="아이디를 입력하세요." class="form-control" type="text">
+                <button id="id-check" data-value="0">중복 확인</button>
+            </div>
+            <label for="password" class="form-label password">비밀번호 입력</label>
+            <input id="password" style="margin-bottom: 10px" placeholder="비밀번호를 입력하세요." class="form-control" type="password">
+            <p class="message">영문자,숫자,특수문자를 하나 포함,<br> (8~15)자리로 만들어주세요.</p>
+            <label for="passwordCheck" class="form-label passwordCheck">비밀번호 확인</label>
+            <input id="passwordCheck"
+                   placeholder="위와 동일한 비밀번호를 입력하세요."
+                   class="form-control" type="password">
+        </div>
+        <div class="signup-button-container">
+            <button id="signup-button">회원가입</button>
+        </div>
+        <div class="link-container">
+            <a href="/public/login">로그인</a>
+            <span>|</span>
+            <a href="/public/findId">아이디 찾기</a>
+            <span>|</span>
+            <a href="/public/findPassword">비밀번호 찾기</a>
+        </div>
+        <script th:src="@{/js/member/signup.js}"></script>
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b111d00acb12b88f3d5371bec9643ca4&libraries=services"></script>
+    </div>
+<th:block th:replace="~{fragments/footer :: footerFragment}"></th:block>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>NaHC</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
+    <th:block th:replace="~{common/config :: configFragment}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/certificate/certificateList.css}" >
+</head>
+<body>
+<th:block th:replace="~{fragments/header :: headerFragment}"></th:block>
+<div id="certificateList-content-layout">
+    <div class="img-header">
+        NaHC Military Service
+        <span>자격증 리스트</span>
+        <div class="row top-container">
+            <div class="col col-lg-6 col-md-6 passing-top">
+                <p>합격률 1위</p>
+                <span style="font-size:40px" th:text="${passingTop.name} + ${passingTop.type}"></span>
+                <p th:text="${passingTop.passingRate}+'%'"></p>
+                <a th:href="@{/public/certificate/{id}(id=${passingTop.id})}">자세히보기</a>
+            </div>
+            <div class="col col-lg-6 col-md-6 examination-top">
+                <p>응시자 수 1위</p>
+                <span style="font-size:40px" th:text="${examinationTop.name}+${examinationTop.type}"></span>
+                <p th:text="${examinationTop.totalExamination}+'건'"></p>
+                <a th:href="@{/public/certificate/{id}(id=${examinationTop.id})}">자세히보기</a>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="button-container">
+            <button class="type1">합격률 순</button>
+            <button class="type2">응시수 순</button>
+            <button class="type3">모두 보기</button>
+            <button class="type4">기능사 시험</button>
+            <button class="type5">산업기사 시험</button>
+        </div>
+        <div class="input-box">
+            <label>
+                <input placeholder="검색어를 입력해주세요." type="text" class="input"/>
+                <i class="fa-solid fa-magnifying-glass search-box"></i>
+            </label>
+        </div>
+    </div>
+    <div class="table-container">
+        <div class="table-wrapper">
+            <table class="table table-bordered table-hover">
+                <thead class="table-head">
+                <tr>
+                    <th scope="col" style="width:5%;">No</th>
+                    <th scope="col" style="width:15%;">이름</th>
+                    <th scope="col" style="width:10%;">시험 종류</th>
+                    <th scope="col" style="width:10%;">총 응시수</th>
+                    <th scope="col" style="width:10%;">응시율</th>
+                    <th scope="col" style="width:10%;">합격률</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="result,stat  : ${list}">
+                    <th scope="row" class="text_number" th:text="${stat.index+1}"></th>
+                    <td class="text_title"><a th:href="@{/public/certificate/{id}(id=${result.id})}" th:text="${result.name}"></a></td>
+                    <td class="text-center" th:text="${result.type}"></td>
+                    <td class="text-center" th:text="${result.totalExamination}"></td>
+                    <td class="text-center" th:text="${result.examinationRate}"></td>
+                    <td class="text-center" th:text="${result.passingRate}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script th:src="@{/js/certificate/certificateList.js}"></script>
+</div>
+<th:block th:replace="~{fragments/footer :: footerFragment}"></th:block>
+</body>
+</html>

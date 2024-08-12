@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>NaHC Army</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
+    <th:block th:replace="~{common/config :: configFragment}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/planner/plannerList.css}" >
+</head>
+<body>
+<th:block th:replace="~{fragments/header :: headerFragment}"></th:block>
+<div>
+    <p class="img-header">
+        NaHC Military Service
+        <span>My Planner</span>
+    </p>
+    <div class="row planner-container">
+        <div class="col col-lg-6 add-container">
+            <h4>플래너 추가하기</h4>
+            <p class="add-container-description">
+                자신만의 플래너를 등록하고 일정등을 기록해보세요! <br>
+                훈련 날짜등을 따로 지정하여 플래너를 보다 보기 쉽게 정리할 수 있습니다.
+            </p>
+            <div class="planner-input-form">
+                <p><span>플래너 제목</span>과 <span>날짜를</span> 선택해주세요!</p>
+                <div class="planner-input-form-wrapper">
+                    <label for="title">제목입력</label>
+                    <input class="form-control" id="title" type="text"/> <br>
+
+                    <label for="startDate">날짜 선택</label> <br>
+                    <input id="startDate" type="date"/>
+                    <span class="wave">~</span>
+                    <label hidden="hidden" for="endDate">종료 날짜</label>
+                    <input id="endDate" type="date"/> <br>
+                    <div class="add-planner-button-container">
+                        <button id="add-planner">추가하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-lg-6 planner-list-container">
+            <h4>플래너 목록</h4>
+            <p class="correct-message" th:if="${memberPlanners.size() > 0}">
+                총 <span th:text="${memberPlanners.size()}"></span>건의 플래너를 등록중입니다.<br/>
+                삭제 또는 날짜, 제목 변경을 원하시면 해당 버튼을 눌러주세요!
+            </p>
+            <p class="no-message" th:if="${memberPlanners.size() == 0}">
+                <i class="fa-solid fa-circle-exclamation"></i> 등록된 플래너가 없습니다. <br>
+                플래너를 추가해보세요!
+            </p>
+            <div class="planner-item" th:each="result : ${memberPlanners}">
+                <div class="planner-main">
+                    <p class="planner-main-title" th:text="${result.title}"></p>
+                    <p class="planner-main-date" th:text="${result.startDate} + ' ~ ' + ${result.endDate}"></p>
+                    <div class="planner-button-container">
+                        <button
+                                th:data="${result.id}"
+                                id="delete-planner">삭제</button>
+                        <button
+                                data-bs-toggle="modal"
+                                th:attr="data-bs-target='#modalDate' + ${result.id}"
+                                id="edit-date-planner">날짜 변경</button>
+                        <button
+                                data-bs-toggle="modal"
+                                th:attr="data-bs-target='#modalTitle'+ ${result.id}"
+                                id="edit-title-planner">제목 변경</button>
+                    </div>
+                </div>
+                <a class="planner-arrow" th:href="@{/private/planner/{id}(id=${result.id})}">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <div class="modal fade"
+                     th:id="'modalDate'+${result.id}"
+                     data-bs-backdrop="static"
+                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel"># 날짜 변경</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <span>
+                                    기존 날짜 <i class="fa-solid fa-chevron-right"></i> <span style="color:#e45735;" th:text="${result.startDate} + ' ~ ' + ${result.endDate}"></span>
+                                </span>
+                                <br>
+                                <label th:for="'startDate'+${result.id}">새로운 날짜 선택</label> <br>
+                                <input th:id="'startDate'+${result.id}" type="date"/>
+                                <span class="wave">~</span>
+                                <label hidden="hidden" th:for="'endDate'+${result.id}">종료 날짜</label>
+                                <input th:id="'endDate'+${result.id}" type="date"/>
+                                <p class="warning-message"><i class="fa-solid fa-circle-exclamation"></i> 날짜 변경 시 모든 플래너 데이터가 초기화됩니다.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="close-button" data-bs-dismiss="modal">닫기</button>
+                                <button th:data="${result.id}" type="button" id="save-date-button" class="btn btn-outline-success">변경</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade"
+                     th:id="'modalTitle'+${result.id}"
+                     data-bs-backdrop="static"
+                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel2"># 제목 변경</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <span>
+                                    기존 제목 <i class="fa-solid fa-chevron-right"></i> <span style="color:#e45735;" th:text="${result.title}"></span>
+                                </span>
+                                <br>
+                                <label th:for="'title'+${result.id}">새로운 제목 입력</label>
+                                <input type="text"
+                                       th:id="'title'+${result.id}"
+                                       class="form-control title"
+                                       placeholder="제목을 입력해주세요."/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class='close-button' data-bs-dismiss="modal">닫기</button>
+                                <button
+                                    th:data="${result.id}"
+                                    type="button" id="save-title-button">변경</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/planner/plannerList.js}"></script>
+</div>
+<th:block th:replace="~{fragments/footer :: footerFragment}"></th:block>
+</body>
+</html>

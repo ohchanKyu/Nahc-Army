@@ -1,0 +1,235 @@
+.all-container{
+    width:1290px;
+    margin:0 auto;
+}
+.planner-date-container{
+    padding:3% 5%;
+}
+.gemini-container{
+    padding:3% 4% 3% 0;
+}
+.planner-date-container-title, .gemini-title {
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color:#e45735;
+}
+.planner-title, .planner-date{
+    font-weight: bold;
+    font-size:18px;
+    margin:10px 0;
+}
+.date-wrapper {
+    padding: 30px 10px;
+    background: #f9f3e6;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.weekday-container{
+    display: flex;
+    justify-content: center;
+}
+.week{
+    width:100px;
+    text-align: center;
+    padding:10px 0;
+    background-color:#3b3b3b;
+    color:white;
+    border-left: 1px solid #3b3b3b;
+    font-size:13px;
+}
+.planner-row{
+    display: flex;
+    justify-content: center;
+}
+.empty-element{
+    width:100px;
+    height: 100px;
+    background-color: #ecebf5;
+    border:1px solid #ffffff;
+}
+.planner-element{
+    cursor: pointer;
+    width:100px;
+    height: 100px;
+    background-color: #ecebf5;
+    color:#333;
+    border:1px solid #ffffff;
+    transition: transform 0.3s ease;
+}
+.planner-element:hover{
+    transform: scale(1.1);
+}
+.planner-element-date{
+    text-align: center;
+    font-size:14px;
+    margin-top:10px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.planner-element-title {
+    font-weight: bold;
+    text-align: center;
+    word-break: keep-all;
+    font-size:13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.army{
+    background-color: #466e49;
+    color:#fff;
+    border:1px solid #ffffff;
+}
+.modal-input{
+    width:80% !important;
+}
+.form-check-description, .form-check-description2{
+    font-size:14px;
+    margin:10px 0;
+    color:#e45735;;
+    font-weight: bold;
+}
+.form-check-description2{
+    margin-bottom: 0;
+}
+.form-switch{
+    padding-left: 50px !important;
+}
+.modal-date{
+    font-weight: bold;
+    padding-left: 17px;
+}
+.close-button, #save-button{
+    font-size:13px;
+    font-weight: 600;
+    border: none;
+    padding: 10px 20px;
+    background-color: antiquewhite;
+    margin:0 5px;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+}
+.close-button:hover{
+    background-color: #e45735;
+    color:#ffffff;
+}
+#save-button:hover{
+    background-color: #e45735;
+    color:#ffffff;
+}
+.arrow-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding:0 10px;
+}
+.current-month{
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size:20px;
+}
+.arrow-month{
+    margin-left: auto;
+}
+.arrow-month i{
+    transition: transform 0.3s ease;
+    margin:0 10px;
+    font-size:20px;
+    cursor:pointer;
+}
+.arrow-month i:hover{
+    color:#e45735;
+    transform:scale(1.1);
+}
+.gemini-description{
+    text-align: center;
+    font-size:15px;
+    font-weight: bold;
+    color:#333;
+}
+.chat-container{
+    background-color:#212121;
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 640px;
+}
+.chat-container::-webkit-scrollbar{
+    width: 20px;
+}
+.chat-container::-webkit-scrollbar-thumb{
+    background-color: rgba(255,255,255,1);
+    border-radius: 10px;
+    border: 7px solid rgba(0,0,0,0.8);
+}
+.chat-container::-webkit-scrollbar-track{
+    background-color: rgba(0,0,0,0);
+}
+.chat-header-container{
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+    padding:50px 0;
+}
+.chat-main-text{
+    font-weight: bold;
+    margin-bottom: 0;
+    color:#fff;
+}
+.ai-response-container{
+    margin-bottom: 20px;
+}
+.question, .answer{
+    margin-bottom: 10px;
+}
+.question-container{
+    word-break: keep-all;
+    font-weight: bold;
+    padding: 0 5%;
+    color: white;
+}
+.answer-container{
+    word-break: keep-all;
+    font-weight: bold;
+    padding: 0 5%;
+    color: white;
+}
+.question-text, .answer-text{
+    padding:0 30px;
+    font-size:13px;
+    font-weight: 500;
+}
+.input-container{
+    width:100%;
+    margin:0 auto;
+    padding:30px 0;
+    text-align: center;
+}
+.ai-wrapper{
+    margin-bottom: 40px;
+}
+.loading-container{
+    width:80%;
+    margin:0 auto;
+    text-align: center;
+}
+.loading-text{
+    color:white;
+    opacity: 0.5;
+    font-size:14px;
+}
+#gemini-input{
+    width:90%;
+    overflow: hidden;
+    transition: height 0.3s;
+    resize: none;
+    padding:10px;
+    font-size:14px;
+    border-radius: 8px;
+    border:1px solid #666666;
+    background-color:#212121 ;
+    color:white;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html
+      xmlns:th="http://www.thymeleaf.org"
+      lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>NaHC Army</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
+    <th:block th:replace="~{common/config :: configFragment}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<th:block th:replace="~{fragments/header :: headerFragment}"></th:block>
+<div class="main-page-content">
+    <p class="img-header">
+        NaHC Military Service
+        <span>NaHC</span>
+    </p>
+    <div class="description-container">
+        <h2>
+            국군 장병 자격증 플랫폼
+        </h2>
+        <p>
+            국군 장병들의 자격증 취득을 돕기위한 플랫폼입니다. <br>
+            자격증에 대해 살펴보고 플래너도 등록해보세요! <br>
+        </p>
+    </div>
+    <div class="all-wrapper">
+        <div class="row section in_view">
+            <div class="col col-lg-12 section-container go-certificate">
+                <div class="section-wrapper">
+                    <div class="image-wrapper">
+                        <img th:src="@{/assets/certificate_list.jpg}" alt="planner-image"/>
+                    </div>
+                    <div class="text-wrapper">
+                        <p class="text">
+                            육군 국가기술자격증 취득 현황 및 국가보훈부의<br>
+                            데이터를 통해 여러 자격증 정보를 찾아보세요! <br>
+                            또한 부대 주소를 통해 자격증 시험장소 정보를 제공합니다.
+                            군별, 희망 전공 선택으로 <br> 맞춤 자격증도 추천받아 보세요!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row section in_view">
+            <div class="col col-lg-12 section-container go-planner">
+                <div class="section-wrapper">
+                    <div class="image-wrapper">
+                        <img th:src="@{/assets/planner.jpg}" alt="planner-image"/>
+                    </div>
+                    <div class="text-wrapper">
+                        <p class="text">
+                            자신만의 플래너를 등록할 수 있습니다! <br>
+                            날짜별로 훈련, 일반 플래너를 설정할 수 있습니다. <br>
+                            자격증 공부에 대한 계획을 세우고, <br>
+                            날마다의 공부량을 체크해보세요. <br>
+                            훈련에 대한 일지도 기록해보세요! <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row section in_view">
+            <div class="col col-lg-12 section-container go-gemini">
+                <div class="section-wrapper">
+                    <div class="image-wrapper">
+                        <img th:src="@{/assets/ai.jpg}" alt="planner-image"/>
+                    </div>
+                    <div class="text-wrapper">
+                        <p class="text">
+                            플래너에서 AI 서비스도 같이 이용가능합니다. <br>
+                            Gemini 서비스를 통해 플래너를 기록하면서 <br>
+                            문제나 궁금한점이 있다면 AI 챗봇에게 물어보세요! <br>
+                            다른 AI 서비스 웹사이트의 접속 없이 <br>
+                            편하게 플래너를 기록하면서 물어볼 수 있습니다. <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="api_section in_sectionView">
+        <h2 class="api_header"> What Use API? </h2>
+        <div class="row api_list">
+            <div class="col col-lg-3 api_container">
+                <div class="api_title">
+                    Kakao
+                </div>
+                <div class="api_text">
+                    Kakao Developer API를 통해
+                    부대 주소를 통한 근처의 CBT 시험장 검색
+                </div>
+            </div>
+            <div class="col col-lg-3 api_container">
+                <div class="api_title">
+                    TMap
+                </div>
+                <div class="api_text">
+                    TMap API를 통해 <br>
+                    부대 근처의 시험장 장소까지의 교통정보 검색
+                </div>
+            </div>
+            <div class="col col-lg-3 api_container">
+                <div class="api_title">
+                    Google AI
+                </div>
+                <div class="api_text">
+                    Google AI Service를 통해
+                    Gemini Chat bot을 통해
+                    사용자에게 챗봇 기능을 제공
+                </div>
+            </div>
+            <div class="api_link_container">
+                <p class="api_link_text">※ 사용 API에 대한 자세한 정보를 원허시면 아래 링크를 참조해주세요.</p>
+                <div class="api_link_list">
+                    <div class="api_link">
+                        KaKao Developer <i class="fa-solid fa-share"></i> https://developers.kakao.com/
+                    </div>
+                    <div class="api_link">
+                        TMap <i class="fa-solid fa-share"></i> https://openapi.sk.com/products/detail?svcSeq=4&menuSeq=1
+                    </div>
+                    <div class="api_link">
+                        Google AI <i class="fa-solid fa-share"></i> https://ai.google.dev/ <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/main.js}"></script>
+</div>
+<th:block th:replace="~{fragments/footer :: footerFragment}"></th:block>
+</body>
+</html>

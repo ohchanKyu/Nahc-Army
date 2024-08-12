@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NaHC Header</title>
+</head>
+<body>
+<th:block th:fragment="headerFragment">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/public/main">NaHC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/public/main">메인화면</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            자격증
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/public/certificate">자격증 리스트</a></li>
+                            <li><a class="dropdown-item" href="/private/certificate">자격증 서비스</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/private/planner">플래너</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/private/me">내 정보</a>
+                    </li>
+                    <li class="nav-item" th:if="${session.member == null }">
+                        <a class="nav-link active" aria-current="page" href="/public/login">로그인</a>
+                    </li>
+                    <li class="nav-item" th:if="${session.member != null }">
+                        <a class="nav-link active" id="logout-button" style="cursor:pointer;" aria-current="page">로그아웃</a>
+                    </li>
+                </ul>
+                <div class="member-name" th:if="${session.member != null }">
+                    <span th:text="${session.member.name}"></span>님
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script th:src="@{/js/config.js}"></script>
+</th:block>
+</body>
+</html>

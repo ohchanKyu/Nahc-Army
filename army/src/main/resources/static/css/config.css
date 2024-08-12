@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Dela+Gothic+One&family=Oxygen:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+body{
+    font-weight:500;
+    font-family: "Noto Sans KR", sans-serif;
+}
+.img-header {
+    width:100%;
+    background: #090d00;
+    color: rgba(255, 255, 255, 0.25);
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    display: inline-block;
+    padding: 5em 0em;
+}
+.img-header span {
+    font:700 4em/1 "italic", italic;
+    font-style:italic !important;
+    letter-spacing: 0;
+    padding: 0.25em 0 0.325em;
+    display: block;
+    margin: 0 auto;
+    text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+    background: url(../assets/animated-text-fill.png) repeat-y;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: aitf 80s linear infinite;
+    animation: aitf 80s linear infinite;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+@-webkit-keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+.navbar{
+    padding:5% 8% 0 8% !important;
+    background-color:#090d00 !important;
+}
+.navbar-brand{
+    font-weight:bold;
+    font-family: 'DM Serif Display', serif;
+}
+.nav-link{
+    cursor:pointer;
+}
+.member-name{
+    float:right;
+    color:white;
+}
+#footer{
+    width:100%;
+    margin-top:30px;
+    padding:3em 0 3em 0;
+    text-align: center;
+    font-weight: bold;
+    color:white;
+    background-color:#090d00;
+    clear:both;
+}
+.name, .copyright{
+    font-size:13px;
+    margin:10px 0;
+}
+.name{
+    margin-top:30px;
+}
+#footer a {
+    color:white;
+    text-decoration: none;
+}
+.icon-container{
+    margin-top:30px;
+}
+.icon-container a {
+    margin:0 20px;
+    font-size:30px;
+}
+.icon-container a i:hover{
+    color:#e45735;
+}

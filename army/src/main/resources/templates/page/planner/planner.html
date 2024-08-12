@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NaHC Army</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
+    <style>
+        .ck-content {
+            font-size: 15px;
+            min-height:200px;
+        }
+    </style>
+    <th:block th:replace="~{common/config :: configFragment}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/planner/planner.css}">
+</head>
+<body>
+<th:block th:replace="~{fragments/header :: headerFragment}"></th:block>
+<div>
+    <p class="img-header">
+        NaHC Military Service
+        <span>MILITARY Planner</span>
+    </p>
+    <div class="row all-container">
+        <div class="col col-lg-8 col-md-6 col-12 planner-date-container">
+            <h2 class="planner-date-container-title">My Planner </h2>
+            <hr>
+            <p class="planner-title">
+                <span>플래너 제목 <i class="fa-solid fa-chevron-right"></i> <span style="color:#e45735" th:text="${planner.title}"></span></span>
+            </p>
+            <p class="planner-date">
+                <span>플래너 날짜 <i class="fa-solid fa-chevron-right"></i> <span style="color:#e45735" th:text="${planner.startDate} + ' ~ ' + ${planner.endDate}"></span></span>
+            </p>
+            <hr>
+            <div class="date-wrapper">
+                <div class="arrow-container">
+                    <i style="margin-right:5px;" class="fa-solid fa-calendar-check"></i> <p class="current-month"></p>
+                    <span class="arrow-month"></span>
+                </div>
+                <div class="all-wrapper">
+                    <div class="weekday-container">
+                        <div class="week">일</div>
+                        <div class="week">월</div>
+                        <div class="week">화</div>
+                        <div class="week">수</div>
+                        <div class="week">목</div>
+                        <div class="week">금</div>
+                        <div class="week">토</div>
+                    </div>
+                    <div class="planner-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-lg-4 col-md-6 col-12 gemini-container">
+            <h2 class="gemini-title"> Chat Service </h2>
+            <hr>
+            <p class="gemini-description">
+                Gemini Service를 이용한 챗봇입니다. <br>
+                플래너를 작성하시거나 자격증에 대해 궁금한 점이 있을 경우 <br>
+                Gemini Chat을 통해 정보를 얻어보세요!
+            </p>
+            <hr>
+            <div class="chat-container">
+                <div class="chat-header-container">
+                    <img class="chat-main-image" th:src="@{/assets/gpt.png}" alt="gpt-img"/>
+                    <p class="chat-main-text">
+                        Gemini Service를 이용한 챗봇입니다. <br>
+                        원하시는 것을 검색해보세요!
+                    </p>
+                </div>
+                <div class="ai-response-container">
+                </div>
+                <div class="loading-container" style="display: none">
+                    <p class="loading-text">
+                        답변을 작성중입니다. <br>
+                        잠시만 기다려주세요.
+                    </p>
+                </div>
+                <div class="input-container">
+                    <label for="gemini-input" hidden="hidden"></label>
+                    <textarea
+                        onkeydown="aiRequest(event)"
+                        oninput="resizeTextarea(this)"
+                        placeholder="Message Prompt..." id="gemini-input"></textarea>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script th:inline="javascript">
+        let plannerComponentList = [[ ${ planner.plannerComponentList } ]];
+        const plannerId = [[ ${ planner.id } ]];
+    </script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
+    <script th:src="@{/js/planner/planner.js}"></script>
+</div>
+<th:block th:replace="~{fragments/footer :: footerFragment}"></th:block>
+</body>
+</html>

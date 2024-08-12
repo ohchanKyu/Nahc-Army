@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Dela+Gothic+One&family=Oxygen:wght@700&display=swap');
+
+.header{
+    width:70%;
+    margin:0 auto;
+    text-align: center;
+    padding-top:3%;
+}
+.header h1 {
+    font-weight:bold;
+    font-family: 'DM Serif Display', serif;
+}
+.top-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding:2% 5% 0 5%;
+}
+.location-top, .recommend-top{
+    width:300px;
+    font-weight: bold;
+    text-align: center;
+    padding:3% 0;
+    margin:0 30px;
+}
+.section-container{
+    width:1000px;
+    margin:0 auto;
+    padding:20px 0 50px 0;
+}
+.near-container h3, .region-container h3, .wrapper h3{
+    margin:30px 0;
+    text-align: center;
+    font-weight: bold;
+}
+.region-container h3{
+    color:white;
+    margin-bottom: 30px;
+}
+.near-description{
+    font-weight: bold;
+    text-align: center;
+    word-break: keep-all;
+    margin:20px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+.no-message, .correct-message{
+    font-weight: bold;
+    color:red;
+    word-break: keep-all;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.correct-message{
+    color:#0aba16;
+}
+.near-list-container{
+    display: flex;
+    justify-content: center;
+}
+.near-card.animation {
+    color: inherit;
+    cursor: pointer;
+    width:400px;
+    height: 400px;
+    perspective: 1000px;
+    position: relative;
+}
+@media screen and (max-width: 800px) {
+    .near-card {
+        width: calc(50% - 3rem);
+    }
+}
+@media screen and (max-width: 500px) {
+    .near-card {
+        width: 100%;
+    }
+}
+.near-card{
+    height:300px;
+    margin:0 20px;
+}
+.front, .back {
+    display: block;
+    border-radius: 6px;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: ease-in-out 600ms;
+}
+.front {
+    background-size: cover;
+    padding: 20px;
+    font-size: 15px;
+    font-weight:bold;
+    color: #fff;
+    overflow: hidden;
+}
+.front:before {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #1a9be6, #1a57e6);
+    z-index: -1;
+}
+.near-card:hover .front {
+    transform: rotateY(180deg);
+}
+.near-card:nth-child(even):hover .front {
+    transform: rotateY(-180deg);
+}
+.back {
+    background: linear-gradient(135deg, #f2f4f5, #cad8fc);
+    font-size: 15px;
+    font-weight: bold;
+    transform: rotateY(-180deg);
+    padding: 20px;
+}
+.near-card:hover .back {
+    transform: rotateY(0deg);
+}
+
+
+.large{
+    font-size:18px;
+}
+.near-group{
+    border-radius: 8px !important;
+    margin-top:20px !important;
+}
+.near-group-item{
+    text-align: left !important;
+    font-size:14px !important;
+    width:100% !important;
+    margin:0 auto !important;
+}
+.list-group-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.list-group-left{
+    text-align: center;
+    margin-right: 15px;
+}
+.list-group-right{
+    text-align: center;
+    margin-left: 15px;
+}
+.no-database-list{
+    font-weight: bold;
+    word-break: keep-all;
+    text-align: center;
+    color: red;
+}
+.region-container{
+    background: #090d00;
+    padding:20px 30px 50px 30px;
+    width:100%;
+}
+.region-card{
+    width:200px;
+    font-weight: bold;
+    word-break: keep-all;
+    margin:0 30px;
+    font-size:14px;
+}
+.card-title{
+    text-align: center;
+    color:#e45735;
+    font-weight: bold;
+}
+.card-text{
+    text-align: center;
+    margin-bottom: 0;
+    color:#d2d8fb;
+    font-weight: bold;
+}
+.card-text.end{
+    margin-bottom: 70px;
+}
+.card-body p {
+    font-size:13px;
+    margin-bottom: 0;
+    text-align: center;
+}
+.region-card-list{
+    display: flex;
+    justify-content: center !important;
+}
+.list-group-item p{
+    margin-bottom: 5px;
+    color:#e45735;
+}
+.wrapper{
+    margin-top:50px;
+}
+.wrapper p {
+    text-align: center;
+    font-weight: bold;
+    font-size:15px;
+    margin-bottom: 40px;
+}
+.recommend-list-container{
+    padding:50px 30px;
+    background-color: #d2d8fb;
+    border-radius: 8px;
+    width:1000px;
+    margin:0 auto;
+}
+.army-code-container h4, .category-container h4, .recommend-list h4 {
+    text-align: center;
+    font-weight: bold;
+}
+.recommend-list h4{
+    margin-top:30px;
+}
+.army-code-container p, .category-container p {
+    text-align: center;
+    margin:20px 0;
+    font-weight: bold;
+    opacity: 0.5;
+}
+.label-container{
+    display: flex;
+    justify-content: center;
+}
+.label-container label{
+    text-align: center;
+    font-size:15px;
+    font-weight: 600;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: #4c0b83;
+    color: #ffffff;
+    cursor: pointer;
+    margin:0 5px;
+    transition: transform 0.3s ease;
+}
+.label-container label:hover{
+    transform: scale(1.1);
+}
+.display-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-select{
+    height: 43px;
+    width:70%;
+}
+#recommend-button-container button {
+    text-align: center;
+    font-size:15px;
+    font-weight: 600;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: #4c0b83;
+    color: #ffffff;
+    cursor: pointer;
+    margin-left:10px;
+    transition: transform 0.3s ease;
+}
+#recommend-button-container button:hover{
+    transform: scale(1.1);
+}
+.recommend-list{
+    border-top:1px solid #333;
+    margin-top:40px;
+}
+.header-description {
+    text-align: center;
+    margin:20px 0 30px 0;
+    color:#333;
+}
+.item-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top:20px;
+}
+.recommend-item{
+    width:200px;
+    padding:20px 10px;
+    margin:0 10px;
+    background-color:#31005a;
+    color:white;
+    border-radius: 8px;
+    text-align: center;
+}
+.recommend-item a {
+    color:white;
+    text-decoration: none;
+}
+.recommend-item a:hover{
+    color:#d2d8fb;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>NaHC Army</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
+    <th:block th:replace="~{common/config :: configFragment}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/user.css}">
+</head>
+<body>
+<th:block th:replace="~{fragments/header :: headerFragment}"></th:block>
+<div class="user-page-content">
+    <div class="margin-wrapper">
+        <div class="wrapper">
+            <div class="header-container">
+                <img th:src="@{/assets/logo.png}" alt="logo-img"/>
+                <div class="header-text">
+                    <p class="user-name" th:text="${user.name}+'님'"></p>
+                    <p class="authority" th:text="'그룹 : ' + ${user_role == 'ROLE_ADMIN' ? '관리자' : '사용자'}"></p>
+                    <p class="date" th:text="'가입날짜 : ' + ${user.date}"></p>
+                    <p class="planner-count" th:text="'플래너 수 : ' + ${plannerCount} + '개'"></p>
+                </div>
+            </div>
+            <hr>
+            <div class="section-container">
+                <h4 class="section-header"><i class="fa-solid fa-gear"></i> 회원 계정관리</h4>
+                <div class="input-container">
+                    <label for="name" class="form-label name">회원 이름</label>
+                    <input id="name"
+                           th:value="${user.name}"
+                           placeholder="이름을 입력하세요."
+                           class="form-control" type="text">
+                    <button class="save" id="name-save-button">저장</button>
+                    <hr>
+                    <div class="sample-box">
+                        <label for="postcode" class="form-label password">현재 부대 주소</label>
+                        <p class="address" th:text="${user.address}"></p>
+                        <p class="description">※ 변경을 원하시면 아래 우편번호 검색 후 저장을 눌러주세요!</p>
+                        <div class="id-input-container">
+                            <input id="postcode" placeholder="우편번호 입력" class="form-control" type="text">
+                            <button onclick="sample6_execDaumPostcode()"
+                                    class="address_number_button" id="id-postcode" data-value="0">우편번호 검색</button>
+                        </div>
+                        <input type="hidden" id="address" placeholder="주소">
+                        <input type="hidden" id="extraAddress" placeholder="참고항목">
+                        <button class="save" id="address-save-button">저장</button>
+                    </div>
+                    <hr>
+                    <label for="id" class="form-label id">회원 아이디</label>
+                    <div class="id-input-container">
+                        <input id="id" th:value="${user.userId}" placeholder="아이디를 입력하세요." class="form-control" type="text">
+                        <button id="id-check" data-value="0">중복 확인</button>
+                    </div>
+                    <button class="save" id="id-save-button">저장</button>
+                    <hr>
+                    <label for="password" class="form-label password">비밀번호 입력</label>
+                    <input style="margin-bottom: 20px;" id="password" placeholder="변경 비밀번호를 입력하세요." class="form-control" type="password">
+
+                    <label for="passwordCheck" class="form-label passwordCheck">비밀번호 확인</label>
+                    <input id="passwordCheck"
+                           placeholder="위와 동일한 비밀번호를 입력하세요."
+                           class="form-control" type="password">
+                    <button class="save" id="password-save-button">저장</button>
+                    <hr>
+                    <div class="delete-modal-wrapper">
+                        <p class="description">※ 탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요!</p>
+                        <button
+                                id="delete-modal-button"
+                                data-bs-toggle="modal"
+                                data-bs-target='#delete-modal'>회원탈퇴</button>
+                    </div>
+                    <div class="modal fade"
+                         id="delete-modal"
+                         data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel"># 회원탈퇴</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="modal-image-wrapper">
+                                        <img th:src="@{/assets/logo.png}" alt="logo-img"/>
+                                    </div>
+                                    <p class="header_text" th:text="${user.name} + '님 NaHC 탈퇴 전 확인하세요.'"></p>
+                                    <p class="text">
+                                        탈퇴하시면 이용중인 NaHC Certificate가 폐쇄되며 <br/>
+                                        모든 데이터는 복구 불가입니다.
+                                    </p>
+                                    <ul class="check_list">
+                                        <li class="check_one">
+                                            플래너, 부대 주소, 자격증 서비스, 프로필 등 모든 정보가 삭제됩니다.
+                                        </li>
+                                        <li class="check_two">
+                                           이전 정보는 모두 삭제되며 필요한 데이터는 미리 백업을 해주세요.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="close-button" data-bs-dismiss="modal">닫기</button>
+                                    <button th:data="${user.id}" type="button" id="delete-user-button" class="btn btn-outline-success">탈퇴</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:inline="javascript">
+        const user = [[ ${ user } ]];
+    </script>
+    <script th:src="@{/js/user.js}"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b111d00acb12b88f3d5371bec9643ca4&libraries=services"></script>
+</div>
+<th:block th:replace="~{fragments/footer :: footerFragment}"></th:block>
+</body>
+</html>

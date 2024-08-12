@@ -1,0 +1,192 @@
+.planner-container{
+    width:1290px;
+    margin:0 auto;
+}
+.add-container, .planner-list-container{
+    margin-top:40px;
+    padding:0 5%;
+}
+.planner-list-container{
+    border-left: 1px dashed;
+}
+.add-container h4, .planner-list-container h4  {
+    font-weight: bold;
+    text-align: center;
+}
+.add-container-description, .correct-message {
+    text-align: center;
+    font-weight: bold;
+    color:#333;
+    opacity: 0.7;
+    margin:20px 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+}
+.correct-message{
+    margin:20px 0 0 0;
+}
+.planner-input-form{
+    background-color: antiquewhite;
+    border-radius: 12px;
+    padding:20px 0;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.planner-input-form p {
+    text-align: center;
+    font-weight: bold;
+    color:#333;
+    opacity: 0.7;
+    margin:20px 0;
+}
+.planner-input-form p span{
+    color:#e45735;
+}
+.planner-input-form-wrapper{
+    padding:0 12%;
+}
+.planner-input-form-wrapper label{
+    font-weight: bold;
+    font-size:16px;
+    margin-bottom: 10px;
+}
+.planner-input-form-wrapper input {
+    padding:10px;
+    height:40px;
+    font-size:14px;
+}
+.wave{
+    font-size:20px;
+    font-weight: bold;
+    padding:0 10px;
+}
+.no-message{
+    text-align: center;
+    font-weight: bold;
+    color:red;
+    margin-top:30px;
+}
+.add-planner-button-container{
+    margin-top:40px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+#add-planner{
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+    font-size:15px;
+    font-weight: 600;
+    border: none;
+    padding: 10px 50px;
+    border-radius: 15px;
+    background-color: #e45735;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+#add-planner:hover{
+    transform: scale(1.1);
+}
+.planner-item{
+    padding:20px 5%;
+    display: flex;
+    justify-content: center;
+}
+.planner-main{
+    width:80%;
+    background-color: antiquewhite;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    padding:20px 30px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.planner-main-title{
+    font-weight: bold;
+    font-size:18px;
+    margin-bottom: 10px;
+}
+.planner-main-date{
+    font-weight: bold;
+    color:#333;
+    margin-bottom: 10px;
+}
+.planner-button-container{
+    border-top: 1px solid #777;
+    padding-top:10px;
+    display: flex;
+    justify-content: flex-start;
+}
+.planner-button-container button {
+    font-size:13px;
+    font-weight: 600;
+    border: none;
+    padding: 10px 20px;
+    background-color: #e45735;
+    margin:0 5px;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.planner-button-container button:hover{
+    transform: scale(1.1);
+}
+.planner-arrow{
+    width:20%;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: #e45735;
+    text-decoration:none;
+    text-align: center;
+    color:#ffffff;
+    font-size:50px;
+    line-height:3;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.planner-arrow:hover{
+    transform: rotate(-5deg);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.modal-title{
+    font-weight: bold;
+}
+.modal-body label{
+    font-weight: bold;
+    font-size:16px;
+    margin:20px 0 10px 0;
+}
+.modal-body input {
+    padding:10px;
+    height:40px;
+    font-size:14px;
+}
+.warning-message{
+    color:red;
+    font-size:13px;
+    font-weight: bold;
+    margin:20px 0 0 0;
+}
+.close-button, #save-title-button, #save-date-button{
+    font-size:13px;
+    font-weight: 600;
+    border: none;
+    padding: 10px 20px;
+    background-color: antiquewhite;
+    margin:0 5px;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+}
+.close-button:hover{
+    background-color: #e45735;
+    color:#ffffff;
+}
+#save-title-button:hover{
+    background-color: #e45735;
+    color:#ffffff;
+}
+#save-date-button:hover{
+    background-color: #e45735;
+    color:#ffffff;
+}

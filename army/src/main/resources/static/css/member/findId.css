@@ -1,0 +1,103 @@
+body {
+    background: #090d00;
+}
+.img-header{
+    padding-bottom: 2em !important;
+}
+.findId-container{
+    background-color: white;
+    border-radius: 8px;
+    width:450px;
+    margin:0 auto;
+    padding:3em 0;
+    box-shadow: 0 5px 10px 10px #656363;
+}
+.input-container{
+    width:300px;
+    margin:0 auto;
+}
+.input-container label{
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size:14px;
+    margin-left:5px;
+}
+.input-container input{
+    margin-bottom: 20px;
+    height:40px;
+    font-size:13px !important;
+}
+.findId-button-container{
+    margin:0 auto;
+    width:300px;
+    margin-top:30px;
+}
+#findId-button{
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+    font-size:15px;
+    font-weight: 600;
+    border: none;
+    padding: 10px 50px;
+    border-radius: 15px;
+    background-color: #e45735;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+#findId-button:hover{
+    transform: scale(1.1);
+}
+.no-id-message, .id-message{
+    color:red;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+}
+.id-message{
+    color:#0aba16;
+    margin-bottom: 10px;
+}
+.id-list{
+    padding:0;
+}
+.target-id{
+    text-align: center;
+    list-style: none;
+    font-weight: bold;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animation-tag {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+.link-container{
+    margin-top:30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.link-container a {
+    text-align: center;
+    color:#333;
+    font-size:13px;
+    font-weight: bold;
+    margin:0 15px;
+    text-decoration: none;
+}
+.link-container a:hover{
+    color:#e45735;
+}
+.link-container span{
+    opacity: 0.5;
+}

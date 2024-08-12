@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>NaHC</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
+    <th:block th:replace="~{common/config :: configFragment}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/certificate/certificateDetail.css}" >
+</head>
+<body>
+<th:block th:replace="~{fragments/header :: headerFragment}"></th:block>
+<div >
+    <p class="img-header">
+        NaHC Military Service
+        <span>자격증 정보</span>
+        <span style="font-size:40px" th:text="${certificate.name} + ${certificate.type}"></span>
+    </p>
+    <div class="section-container">
+        <h3 th:text="${certificate.name} + ${certificate.type} + ' 기본정보'"></h3>
+        <ul class="row section-list">
+            <li class="col col-lg-3 col-md-6 col-sm-12  col-12 list-wrapper">
+                <p class="title"> 자격증 정보 </p>
+                <ul class="item-list">
+                    <li class="item-list-title" th:text="${certificate.name} +${certificate.type}"></li>
+                    <li class="item">
+                        <span></span>
+                        <span>총 응시수 <i class="fa-solid fa-chevron-right"></i> <span style="color: #e45735;" th:text="${certificate.totalExamination}"></span></span>
+                    </li>
+                    <li class="item">
+                        <span>응시율 <i class="fa-solid fa-chevron-right"></i> <span style="color: #e45735;" th:text="${certificate.examinationRate}"></span><span style="color: #e45735;">%</span></span>
+                    </li>
+                    <li class="item">
+                        <span>합격률 <i class="fa-solid fa-chevron-right"></i> <span style="color: #e45735;" th:text="${certificate.passingRate}"></span><span style="color: #e45735;">%</span></span>
+                    </li>
+                    <li class="item">
+                       <a target="_blank" th:href="${certificate.url}">신청 바로하기 <i class="fa-solid fa-location-arrow"></i></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="col col-lg-3 col-md-6 col-sm-12  col-12 list-wrapper">
+                <p class="title"> 자격증 개요 </p>
+                <p class="text" th:text="${certificate.description}"></p>
+            </li>
+            <li class="col col-lg-3 col-md-6 col-sm-12 col-12 list-wrapper">
+                <p class="title"> 자격증 관련 직무 </p>
+                <p class="text" th:text="${certificate.jobDescription}"></p>
+            </li>
+            <li class="col col-lg-3 col-md-6 col-sm-12  col-12 list-wrapper">
+                <p class="title"> 자격증 전망 </p>
+                <p class="text" th:text="${certificate.prospects}"></p>
+            </li>
+        </ul>
+        <h3 class="apply-title">큐넷 신청 방법</h3>
+        <div class="apply-list-container">
+            <ul class="apply-list">
+                <li class="apply">
+                    <h5>1단계</h5>
+                    <p> Q-net 사이트 (https://www.q-net.or.kr/man001.do?imYn=Y&gSite=Q) 접속</p>
+                </li>
+                <li class="apply-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </li>
+                <li class="apply">
+                    <h5>2단계</h5>
+                    <p> Q-net 홈페이지 오른쪽 위 <span>[회원가입]</span> 클릭
+                        회원선택 > 약관동의 > 본인인증 > 신청서작성 > 가입완료 진행
+                    </p>
+                </li>
+                <li class="apply-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </li>
+                <li class="apply">
+                    <h5>3단계</h5>
+                    <p>
+                        Q-net 메인 홈페이지 <span>[원서접수]</span> 클릭
+                    </p>
+                </li>
+                <li class="apply-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </li>
+                <li class="apply">
+                    <h5>4단계</h5>
+                    <p>
+                        본인에게 해당되는 응시할 자격증 시험 <span>[접수하기]</span> 클릭
+                    </p>
+                </li>
+                <li class="apply-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </li>
+                <li class="apply">
+                    <h5>5단계</h5>
+                    <p>
+                        본인이 보고자 하는 시험 명을 <span>[응시 종목명]</span>에 입력 <br>
+                        또는 오른쪽 탭에서 <span>해당 자격증 찾기 </span> 클릭
+                    </p>
+                </li>
+                <li class="apply-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </li>
+                <li class="apply">
+                    <h5>6단계</h5>
+                    <p>
+                        학력정보 입력 > 경력정보 입력 > 수상경력 입력 > 진단결과보기 클릭 <br>
+                        # 진단 결과 중 <span>[가능]</span> 내역 선택
+                    </p>
+                </li>
+                <li class="apply-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </li>
+                <li class="apply">
+                    <h5>7단계</h5>
+                    <p>
+                        응시자 기초정보 입력 <br>
+                        응시 종목 및 등급과 면제과목 확인 후 편의제공여부(장애여부 등) 선택 <br>
+                        입력 후 <span>[입력내용]</span> 확인
+                    </p>
+                </li>
+                <li class="apply-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </li>
+                <li class="apply">
+                    <h5>8단계</h5>
+                    <p>
+                        지역선택 > 시/군/구 선택 > 조회 클릭 > 시험장소 확인 > 선택 클릭<br>
+                        선택 후 <span>[접수하기]</span> 클릭
+                    </p>
+                </li>
+                <li class="apply-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </li>
+                <li class="apply">
+                    <h5>9단계</h5>
+                    <p>
+                        결제 비용 확인 후 <br>
+                        <span>[결제방법]</span>(신용카드/실시간 계좌이체/Foreign Card)을
+                        선택 후 결제
+                    </p>
+                </li>
+                <li class="apply-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </li>
+                <li class="apply">
+                    <h5>10단계</h5>
+                    <p>
+                        마이페이지 > <span>[원서접수]</span> 내용 확인!
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script th:src="@{/js/certificate/certificateDetail.js}"></script>
+</div>
+<th:block th:replace="~{fragments/footer :: footerFragment}"></th:block>
+</body>
+</html>

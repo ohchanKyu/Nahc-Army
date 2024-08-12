@@ -1,0 +1,132 @@
+.main-page-content{
+    background-color: #090d00;
+    padding-bottom:30px;
+}
+.img-header{
+    padding-bottom: 2em !important;
+}
+.description-container h2 {
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.description-container p {
+    text-align: center;
+    margin-bottom: 60px;
+    color: #d2d8fb;
+    font-weight: bold
+}
+.section{
+    width:100%;
+    margin-bottom: 50px;
+}
+.section-container{
+    background: antiquewhite;
+    padding:30px 0;
+    width:800px;
+    margin:0 auto;
+    border-radius: 30px;
+    box-shadow: 5px 5px 10px white;
+    cursor: pointer;
+}
+.section-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-wrapper img{
+    width:300px;
+    height: 200px;
+    border-radius: 8px;
+}
+.text-wrapper{
+    width:50%;
+    padding:20px 20px;
+    font-weight: bold;
+    word-break: keep-all;
+    margin-left:20px;
+    font-size:16px;
+}
+/* whileInView 효과 CSS */
+.in_view {
+    opacity: 0;
+    transform: translateX(-50px); /* 초기 위치를 왼쪽으로 이동시킴 */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* 투명도와 transform 모두에 대한 트랜지션 설정 */
+}
+.in_view.visible {
+    opacity: 1;
+    transform: translateX(0); /* 원래 위치로 이동시킴 */
+}
+
+.in_sectionView {
+    opacity: 0;
+    transform: translateY(-100px); /* 초기 위치를 왼쪽으로 이동시킴 */
+    transition: opacity 0.5s ease, transform 0.8s ease; /* 투명도와 transform 모두에 대한 트랜지션 설정 */
+}
+.in_sectionView.secondVisible {
+    opacity: 1;
+    transform: translateY(0); /* 원래 위치로 이동시킴 */
+}
+
+.api_section{
+    width: 100%;
+    background-color:#090d00;
+    margin-top:80px;
+    padding:2% 3%;
+}
+.api_header{
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 2%;
+    font-style: italic;
+    color: #d2d8fb;
+}
+.api_list{
+    padding:0 15%;
+    justify-content: center;
+}
+.api_container{
+    width:230px;
+    background-color: #fff;
+    border-top:3px solid red;
+    margin:0 10px;
+}
+.api_title{
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+    font-size: 23px;
+    padding:4% 0;
+    border-bottom: 2px solid #eeeeee;
+}
+.api_text{
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+    padding:20px 10px;
+    color:#555;
+    word-break: keep-all;
+}
+.api_link_container{
+    margin-top:30px;
+    font-size: 14px;
+    color: #d2d8fb;
+    font-weight: bold;
+    text-align: center;
+}
+.api_link{
+    font-size:12px;
+    text-align: center;
+    margin:10px 0;
+    opacity: 0.8;
+}
+.api_link i {
+    margin:0 5px;
+}
+.main_footer{
+    margin-top:0 !important;
+}
+.main-footer{
+    margin-top:0 !important;
+}
