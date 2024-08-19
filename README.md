@@ -34,7 +34,7 @@
 
 - [x] Jpa
 - [x] Thymeleaf
-
+- [x] Maven
 <br>
 
 ### 데이터 및 API
